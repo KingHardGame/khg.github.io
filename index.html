@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1e3a5f">
+  <title>Прораб‑Контроль | Порткомплектимпекс</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>👷 Прораб‑Контроль</h1>
+    <p class="subtitle">ООО «Порткомплектимпекс»</p>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="shift">⏱ Смена</button>
+    <button class="tab" data-tab="tasks">📋 Задания</button>
+    <button class="tab" data-tab="photos">📸 Фото</button>
+    <button class="tab" data-tab="materials">🧱 Материалы</button>
+  </nav>
+
+  <main>
+    <!-- Смена -->
+    <section id="tab-shift" class="tab-content active">
+      <div class="card">
+        <h2>Учёт рабочего времени</h2>
+        <p id="shift-status">Смена не начата</p>
+        <button id="btn-start-shift" class="btn primary">Начать смену</button>
+        <button id="btn-end-shift" class="btn danger" disabled>Закончить смену</button>
+      </div>
+      <div class="card">
+        <h3>Последние отметки</h3>
+        <ul id="shift-list" class="list"></ul>
+      </div>
+    </section>
+
+    <!-- Задания -->
+    <section id="tab-tasks" class="tab-content">
+      <div class="card">
+        <h2>Выдать задание</h2>
+        <input id="task-title" placeholder="Название задания" />
+        <input id="task-worker" placeholder="Исполнитель (бригада/ФИО)" />
+        <textarea id="task-desc" placeholder="Описание / объём работ"></textarea>
+        <button id="btn-add-task" class="btn primary">Добавить задание</button>
+      </div>
+      <div class="card">
+        <h3>Список заданий</h3>
+        <ul id="task-list" class="list"></ul>
+      </div>
+    </section>
+
+    <!-- Фото -->
+    <section id="tab-photos" class="tab-content">
+      <div class="card">
+        <h2>Фотофиксация работ</h2>
+        <input type="file" id="photo-input" accept="image/*" capture="environment">
+        <input id="photo-caption" placeholder="Подпись к фото (что выполнено)">
+        <button id="btn-upload-photo" class="btn primary">Сохранить фото</button>
+      </div>
+      <div class="card">
+        <h3>Галерея</h3>
+        <div id="photo-gallery" class="gallery"></div>
+      </div>
+    </section>
+
+    <!-- Материалы -->
+    <section id="tab-materials" class="tab-content">
+      <div class="card">
+        <h2>Расход материалов</h2>
+        <input id="mat-name" placeholder="Наименование материала">
+        <div class="row">
+          <input id="mat-qty" type="number" step="0.01" placeholder="Кол-во">
+          <select id="mat-unit">
+            <option>шт</option>
+            <option>м</option>
+            <option>м²</option>
+            <option>м³</option>
+            <option>кг</option>
+            <option>меш</option>
+          </select>
+        </div>
+        <button id="btn-add-material" class="btn primary">Добавить запись</button>
+      </div>
+      <div class="card">
+        <h3>Израсходовано</h3>
+        <ul id="material-list" class="list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
